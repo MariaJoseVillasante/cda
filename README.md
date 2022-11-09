@@ -32,3 +32,5 @@ rails g controller pages home about
 bin/rails db:create
 
 git checkout -b styling
+git checkout main
+rails g scaffold post title body:text
