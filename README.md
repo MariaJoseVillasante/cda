@@ -30,3 +30,5 @@ rails new cda --database=postgresql
 cd cda
 rails g controller pages home about
 bin/rails db:create
+
+git checkout -b styling
