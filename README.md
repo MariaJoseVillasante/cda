@@ -34,3 +34,6 @@ bin/rails db:create
 git checkout -b styling
 git checkout main
 rails g scaffold post title body:text
+
+rails g migration add_views_to_posts
+(add default)
