@@ -37,3 +37,5 @@ rails g scaffold post title body:text
 
 rails g migration add_views_to_posts
 (add default)
+
+rails g migration add_name_to_user name
