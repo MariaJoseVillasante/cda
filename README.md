@@ -39,3 +39,10 @@ rails g migration add_views_to_posts
 (add default)
 
 rails g migration add_name_to_user name
+
+https://www.youtube.com/watch?v=A4cDwj0JYVo&list=PL3mtAHT_eRezB9fnoIcKS4vYFjm23vddb&index=4
+
+Pendiente:
+https://www.youtube.com/watch?v=A4cDwj0JYVo&list=PL3mtAHT_eRezB9fnoIcKS4vYFjm23vddb&index=4
+en 18:51 usa la consola para ver como funciona js y stimulus
+*****no se puede editar los comentarios como en el video
