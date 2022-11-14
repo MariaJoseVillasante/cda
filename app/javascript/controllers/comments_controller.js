@@ -13,7 +13,7 @@ export default class extends Controller {
 
         const form = document.getElementById(formID);
         const commentBody = document.getElementById(commentBodyID);
-        const editButton = document.getElementById(editButtonID)
+        const editButton = document.getElementById(editButtonID);
 
         form.classList.toggle("d-none");
         form.classList.toggle("mt-5");
