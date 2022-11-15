@@ -11,24 +11,35 @@
 #     Post.create(title: "Title #{x}", body: "Body #{x} æords", user_id: User.first.id)
 #  end
 
-User.create(email: 'maria@seed.com',
-    password: 'password',
-    password_confirmation: 'password',
-    name: 'Maria',
-    role: User.roles[:admin])
-User.create(email: 'Juan@seed.com',
-    password: 'password',
-    password_confirmation: 'password',
-    name: 'Juan')
+# User.create(email: 'maria@seed.com',
+#     password: 'password',
+#     password_confirmation: 'password',
+#     name: 'Maria',
+#     role: User.roles[:admin])
+# User.create(email: 'Juan@seed.com',
+#     password: 'password',
+#     password_confirmation: 'password',
+#     name: 'Juan')
+posts = []
+comments = []
 
-10.times do |x|
-    post = Post.create(title: "Title #{x}",
-                    body: "Body #{x} Words go here Idx",
-                    user_id: User.first.id)
-
-    5.times do |y|
-        Comment.create(body: "Comment #{y}",
-                    user_id: User.second.id,
-                    post_id: post.id)
+elapsed = Benchmark.measure do
+    10.times do |x|
+        puts "Creating post #{x}"
+        post = Post.create(title: "Title #{x}",
+                        body: "Body #{x} Words go here Idx",
+                        user_id: User.first.id)
+        posts.push(post)
+        2.times do |y|
+            puts "Creating comment #{y} for post #{x}"
+            Comment.create(body: "Comment #{y}",
+                        user_id: User.second.id)
+            coments.push(comments)
         end
+    end
 end
+
+Post.import(posts)
+Comment.import(comments)
+
+puts "Elapsed time is #{elapsed.real} seconds"
