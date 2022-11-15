@@ -33,7 +33,7 @@ class CommentsController < ApplicationController
     end
     private
     def set_post
-        @post = Post.find(params[:post_id])
+        @post = Post.friendly.find(params[:post_id])
     end
     def comment_params
         params.require(:comment).permit(:body)

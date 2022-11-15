@@ -66,7 +66,8 @@ class PostsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
-      @post = Post.find(params[:id])
+      @post = Post.friendly.find(params[:id])
+      redirect_to @post, status: :moved_permanently if params[:id] != @post.slug
     end
 
     # Only allow a list of trusted parameters through.
