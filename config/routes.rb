@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :categories
   authenticated :user, ->(user) { user.admin? } do 
     get 'admin', to: 'admin#index'
     get 'admin/posts'
@@ -8,12 +9,13 @@ Rails.application.routes.draw do
   end 
 
   get 'search', to: 'search#index'
-  get 'users/profile'
+
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
   get '/u/:id', to: 'users#profile', as: 'user'
+  resources :after_signup
 
   # /posts/1/comments/4
   resources :posts do

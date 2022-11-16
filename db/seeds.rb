@@ -20,26 +20,28 @@
 #     password: 'password',
 #     password_confirmation: 'password',
 #     name: 'Juan')
-posts = []
-comments = []
 
-elapsed = Benchmark.measure do
-    10.times do |x|
-        puts "Creating post #{x}"
-        post = Post.create(title: "Title #{x}",
-                        body: "Body #{x} Words go here Idx",
-                        user_id: User.first.id)
-        posts.push(post)
-        2.times do |y|
-            puts "Creating comment #{y} for post #{x}"
-            Comment.create(body: "Comment #{y}",
-                        user_id: User.second.id)
-            coments.push(comments)
-        end
-    end
-end
+# elapsed = Benchmark.measure do
+#     posts = []
+#     mary = User.first
+#     maria = User.second
+#     10.times do |x|
+#         puts "Creating post #{x}"
+#         post = Post.create(title: "Title #{x}",
+#                         body: "Body #{x} Words go here Idx",
+#                         user: mary)
+#                         2.times do |y|
+#                             puts "Creating comment #{y} for post #{x}"
+#                             post.comments.build(body: "Comment #{y}",
+#                                 user: maria)
+#                             end
+#                             posts.push(post)
+#                         end
+#     Post.import(posts, recursive: true)
+# end
 
-Post.import(posts)
-Comment.import(comments)
+# puts "Elapsed time is #{elapsed.real} seconds"
 
-puts "Elapsed time is #{elapsed.real} seconds"
+
+puts 'Seeding database'
+load(Rails.root.join('db', 'seeds', "#{Rails.env.downcase}.rb"))
