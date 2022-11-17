@@ -4,11 +4,13 @@
     <div class="card-actions mb-3">
         <%= link_to "Nosotros", about_path, class: "btn btn-secondary" %>
         <%= link_to "Blog", posts_path, class: "btn btn-secondary" %>
+        <%= link_to "Paga tu año completo de Rugby", checkout_path, class: "btn btn-secondary" %>
     </div>
 </div>
 <% if current_user %>
     <div class="container card mt-4">
         <h2>User Info</h2>
+        <%= link_to "Pagos", @portal_session.url%>
         <h3><%= current_user.full_name %></h3>
         <ul>
             <li><%= current_user.address.street.titleize %></li>

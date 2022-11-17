@@ -1,0 +1,14 @@
+<div class="container">
+    <h1>Success!</h1>
+    <p>El pago ha sido realizado con éxito!</p>
+
+    <h2>Tu total fue de $<%= @session.amount_total %></h2>
+    <br>
+    <% line_items.each do |item| %>
+    <h3><%= item.description %></h3>
+    <br>
+    <p>$<%= item.price.unit_amount %></p>
+    <% product = Stripe::Product.retrieve(item.price.product) %>
+    <%= image_tag(product.images.first, width: 300) %>
+    <% end %>
+</div>
