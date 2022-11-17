@@ -1,12 +1,9 @@
 <div id="<%= dom_id category %>">
-  <p>
-    <strong>Name:</strong>
-    <%= category.name %>
-  </p>
-
-  <p>
-    <strong>Display in nav:</strong>
-    <%= category.display_in_nav %>
-  </p>
-
+  <h2>
+    <%= target = action_name.eql?('show') ? categories_path : category %>
+    <%= link_to category.name.capitalize, target %>
+  </h2>
+  <% category.posts.includes(:user, :rich_text_body).each do |post| %>
+    <%= render 'posts/post', post: post %>
+  <% end %>
 </div>
