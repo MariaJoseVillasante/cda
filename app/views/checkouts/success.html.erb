@@ -4,7 +4,7 @@
 
     <h2>Tu total fue de $<%= @session.amount_total %></h2>
     <br>
-    <% line_items.each do |item| %>
+    <% @line_items.each do |item| %>
     <h3><%= item.description %></h3>
     <br>
     <p>$<%= item.price.unit_amount %></p>

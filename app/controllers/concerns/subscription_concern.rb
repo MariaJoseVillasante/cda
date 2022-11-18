@@ -3,7 +3,7 @@ module SubscriptionConcern
 
     included do
         def check_subscription_status
-            subcription = payment_processor&.subscription&.processor_subscription
+            subscription = payment_processor&.subscription&.processor_subscription
             return if subscription.nil? 
 
             update( 
