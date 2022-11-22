@@ -87,3 +87,9 @@ gem "wicked", "~> 2.0"
 
 gem "stripe", "~> 7.0"
 gem "pay", "~> 5.0"
+
+gem "ahoy_matey", "~> 4.1"
+
+gem "groupdate", "~> 6.1"
+
+gem "chartkick", "~> 4.2"
