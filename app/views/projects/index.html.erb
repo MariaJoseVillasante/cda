@@ -5,6 +5,8 @@
   <p>Web projects contain a link to the demo, while other projects  </p>
   <div id="projects">
     <% @projects.each do |project| %>
+      <%# <%= debug(project) %>
+      <%# <%= debug(project.title) %>
       <% if current_user&.admin? %>
         <%= render "projects/draggable", project: project %>
       <% else %>
