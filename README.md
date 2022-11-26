@@ -47,3 +47,5 @@ Pendiente:
 en 18:51 usa la consola para ver como funciona js y stimulus
 *****no se puede editar los comentarios como en el video
 2- arreglar que solo pueda editar el que hizo el post
+
+rails runner 'puts "#{User.first.email}"'
