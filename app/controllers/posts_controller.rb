@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.all.includes(:user, :rich_text_body).all.order(created_at: :desc)
+    @posts = Post.all.includes(:user, :rich_text_body, [:images_attachments], [:category]).all.order(created_at: :asc)
   end
 
   # GET /posts/1 or /posts/1.json
@@ -74,7 +74,7 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :body, :category_id)
+      params.require(:post).permit(:title, :body, :category_id, images: [])
     end
 
     def mark_notifications_as_read

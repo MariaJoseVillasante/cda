@@ -1,14 +1,20 @@
-<div class="container">
-  <h1>Posts</h1>
-
-  <div id="posts">
+<div class="container_blog">
+  <%# <h1>Posts</h1>  %>
+  <div class="me-auto">
+    <%= link_to "New post", new_post_path, class:"btn btn-secondary" %>
+  </div>
+  <%# <div class="d-flex row"> %>
+  <div id="posts" class="container_blog">
     <% @posts.each do |post| %>
-      <%= render post %>
+      <div class="item_blog">
+        <%= render post %>
+      </div>
       <p>
-        <%= link_to "Show this post", post %>
+        <%# <%= link_to "Show this post", post %> 
       </p>
     <% end %>
+  <%# </div> %>
   </div>
+  <%= link_to "New post", new_post_path, class:"btn btn-secondary me-auto" %>
 </div>
 
-<%= link_to "New post", new_post_path %>

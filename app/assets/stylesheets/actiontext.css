@@ -29,3 +29,15 @@
   padding: 0 !important;
   max-width: 100% !important;
 }
+/* blog  */
+.container_blog {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.item_blog{
+  /* border: 2px solid #457081; */
+  margin: 30px;
+}
+/* fin blog */

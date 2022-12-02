@@ -1,20 +1,31 @@
+<div class="container text-center">
 <div class="container">
-  <%= render @post %>
+  <h1><%= @post.title %></h1>
+  <% @post.images.each do |image| %>
+      <%= image_tag(image, class:"card-img-top") %>
+    <% end %>
+</div>
+  <h2>Categoria: <%= @post.category.name %></h2>
+  <p><%= @post.body.to_plain_text %></p>
+  <h3>posted by <%= link_to @post.user.full_name, user_path(@post.user) %></h3>
+  <h3><%= pluralize(@post.views, "view") %></h3>
+  <p>publicado: <%= @post.created_at %></p>
+  <%# <%= render @post %> 
   <div>
-    <%= link_to "Edit this post", edit_post_path(@post) %> |
-    <%= link_to "Back to posts", posts_path %>
-    <%= button_to "Destroy this post", @post, method: :delete, 
+    <%= link_to "Edit this post", edit_post_path(@post), class:"btn btn-secondary" %> |
+    <%= link_to "Back to posts", posts_path, class:"btn btn-secondary" %>
+    <%= button_to "Destroy this post", @post, method: :delete, class:"btn btn-danger", 
                 form: { data: { turbo_confirm: 'Estás seguro/a que deseas eliminar este elemento?' } } %>
   </div>
-</div>
-<div class="container">
-  <%= render 'comments/form', 
-    post: @post, 
-    comment: @post.comments.build,
-    submit_label: "Reply" %>
-  <% @comments.each do |comment| %>
-    <%= render 'comments/comment', 
-    post: @post, 
-    comment: comment %>
-  <% end %>
+  <div class="container">
+    <%= render 'comments/form', 
+      post: @post, 
+      comment: @post.comments.build,
+      submit_label: "Reply" %>
+    <% @comments.each do |comment| %>
+      <%= render 'comments/comment', 
+      post: @post, 
+      comment: comment %>
+    <% end %>
+  </div>
 </div>

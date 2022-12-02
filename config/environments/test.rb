@@ -57,4 +57,9 @@ Rails.application.configure do
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
+  # config.after_initialize do
+  #   ...
+  #   # FIXME: Remove once https://github.com/flyerhzm/bullet/issues/474 is resolved
+  #   Bullet.add_whitelist type: :unused_eager_loading, class_name: "ActiveStorage::Attachment", association: :blob
+  # end
 end
