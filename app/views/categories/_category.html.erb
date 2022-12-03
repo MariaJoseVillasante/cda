@@ -1,9 +1,16 @@
-<div id="<%= dom_id category %>">
-  <h2>
-    <% target = action_name.eql?('show') ? categories_path : category  %>
-    <%= link_to category.name.capitalize, target %>
-  </h2>
+<div id="<%= dom_id category %>"  class="container">
+    <div  class="d-block">
+      <h2>
+        <% target = action_name.eql?('show') ? categories_path : category  %>
+        <%= link_to category.name.capitalize, target, class:"btn btn-secondary d-flex justify-content-center" %>
+        <br>
+      </h2>
+    </div>
+  <div class="d-flex flex-wrap">
   <% category.posts.includes(:user, :rich_text_body).each do |post| %>
-    <%= render 'posts/post', post: post %>
+    <div class=" justify-content-evenly m-5">
+      <%= render 'posts/post', post: post %>
+    </div>
   <% end %>
+  </div>
 </div>

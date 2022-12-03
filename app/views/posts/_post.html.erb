@@ -1,9 +1,14 @@
 <div id="<%= dom_id post %>"> 
-  <div class="card text-center shadow rounded" style="width: 18rem;">
+  <div class="card text-center shadow rounded" style="width: 20rem;">
     <div class="card-header"><%= post.title %></div>
     <%# <img src="..." class="card-img-top" alt="..."> %>
-    <% post.images.each do |image| %>
+    <%  if post.images.count > 0 %>
+      <% for image in post.images%>
+        <% image_tag(image, class:"card-img-top") %>
+      <% end %>
       <%= image_tag(image, class:"card-img-top") %>
+    <% else %>
+      <%= image_tag("cropped-Escudo_CDA_Definitivo.png", class:"card-img-top", width:"15rem") %>
     <% end %>
     <div class="card-body">
       <h5 class="card-title bold"><%= post.category.name %></h5>
@@ -12,10 +17,11 @@
     <ul class="list-group list-group-flush">
       <li class="list-group-item">posted by <%= link_to post.user.full_name, user_path(post.user) %></li>
       <li class="list-group-item"><%= pluralize(post.views, "view") %></li>
-      <li class="list-group-item">publicado: <%= post.created_at %></li>
+      <li class="list-group-item"># comentarios: <%= post.comments.count %></li>
+      <li class="list-group-item">publicado: <%= post.created_at.strftime('%A, %B, %d, %Y at %I:%M %p') %></li>
     </ul>
     <div class="card-body">
-      <a href="#" class="card-link"><%= link_to "Show this post", post, class:"btn btn-secondary" %></a>
+      <a href="#" class="card-link"><%= link_to "Ver este post", post, class:"btn btn-secondary" %></a>
       <%# <a href="#" class="card-link">Another link</a> %>
     </div>
   </div>

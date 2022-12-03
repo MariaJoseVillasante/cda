@@ -11,6 +11,7 @@ class AdminController < ApplicationController
   end
 
   def users
+    @users = User.includes(:post)
   end
 
   def show_post

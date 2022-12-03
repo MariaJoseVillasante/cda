@@ -1,12 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Categories</h1>
+<h1 class="d-flex justify-content-center" >Categorias:</h1>
 
-<div id="categories">
+<div id="categories" class="container_blog">
   <% @categories.each do |category| %>
     <%= render category %>
     <p>
-      <%= link_to "Show this category", category %>
+      <%= link_to "Show this category", category, class:"btn btn-secondary" %>
     </p>
   <% end %>
 </div>

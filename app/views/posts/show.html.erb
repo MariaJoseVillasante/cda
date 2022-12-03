@@ -1,27 +1,29 @@
 <div class="container text-center">
 <div class="container">
-  <h1><%= @post.title %></h1>
+  <h1 class="my-5"><%= @post.title %></h1>
   <% @post.images.each do |image| %>
-      <%= image_tag(image, class:"card-img-top") %>
+      <%= image_tag(image, class:"") %>
     <% end %>
 </div>
-  <h2>Categoria: <%= @post.category.name %></h2>
+  <h2 class="my-5">Categoria: <%= @post.category.name %></h2>
   <p><%= @post.body.to_plain_text %></p>
-  <h3>posted by <%= link_to @post.user.full_name, user_path(@post.user) %></h3>
+  <h3>posteado por:  <%= link_to @post.user.full_name, user_path(@post.user) %></h3>
   <h3><%= pluralize(@post.views, "view") %></h3>
   <p>publicado: <%= @post.created_at %></p>
   <%# <%= render @post %> 
   <div>
-    <%= link_to "Edit this post", edit_post_path(@post), class:"btn btn-secondary" %> |
-    <%= link_to "Back to posts", posts_path, class:"btn btn-secondary" %>
-    <%= button_to "Destroy this post", @post, method: :delete, class:"btn btn-danger", 
+    <%= link_to "Editar este post", edit_post_path(@post), class:"btn btn-secondary" %> |
+    <%= link_to "Volver a Blog", posts_path, class:"btn btn-secondary" %>
+    <%= button_to "Destruir este post", @post, method: :delete, class:"btn btn-danger my-2", 
                 form: { data: { turbo_confirm: 'Estás seguro/a que deseas eliminar este elemento?' } } %>
   </div>
-  <div class="container">
+  <div class="container my-5">
+  <h3>Comentar este post:</h3>
     <%= render 'comments/form', 
       post: @post, 
       comment: @post.comments.build,
       submit_label: "Reply" %>
+      <h3>Leer Comentarios:</h3>
     <% @comments.each do |comment| %>
       <%= render 'comments/comment', 
       post: @post, 
