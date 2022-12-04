@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :consultations
   resources :projects
   patch 'drag/project'
   get 'members/dashboard'

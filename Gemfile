@@ -105,3 +105,8 @@ gem "acts_as_list", "~> 1.0"
 gem "whenever", "~> 1.0"
 
 
+
+# gem "gem", "~> 0.0.1.alpha"
+# gem "simple_calendar", "~> 2.4"
+
+gem "simple_calendar", "~> 2.4"
